@@ -1,0 +1,21 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, item TEXT, brand TEXT, quantity INTEGER, price INTEGER);
+
+INSERT INTO store VALUES (1, 'pants', 'levi', 10, 50);
+INSERT INTO store VALUES (2, 'shirt', 'homage', 5, 24.99);
+INSERT INTO store VALUES (3, 'pants', 'lucky', 5, 60);
+INSERT INTO store VALUES (4, 'pants', 'polo', 10, 100);
+INSERT INTO store VALUES (5, 'shirt', 'polo', 5, 50);
+INSERT INTO store VALUES (6, 'hat', '47', 20, 19.99);
+INSERT INTO store VALUES (7, 'hat', 'new_era', 20, 39.99);
+INSERT INTO store VALUES (8, 'hat', 'legend', 10, 19.99);
+INSERT INTO store VALUES (9, 'sweat_shirt', 'champion', 5, 24.99);
+INSERT INTO store VALUES (10, 'shorts', 'champion', 2, 19.99);
+INSERT INTO store VALUES (11, 'shorts', 'volcom', 3, 49.99);
+INSERT INTO store VALUES (12, 'shorts', 'gap', 4, 20);
+INSERT INTO store VALUES (13, 'shirt', 'gap', 5, 15.99);
+INSERT INTO store VALUES (14, 'hat', 'santa_cruz', 6, 24.99);
+INSERT INTO store VALUES (15, 'socks', 'reebok', 7, 19.99);
+
+SELECT * FROM store
+ORDER BY price asc;
+select * from store group by brand
