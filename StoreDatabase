@@ -18,4 +18,4 @@ INSERT INTO store VALUES (15, 'socks', 'reebok', 7, 19.99);
 
 SELECT * FROM store
 ORDER BY price asc;
-select * from store group by brand
+
