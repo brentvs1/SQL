@@ -1,0 +1,70 @@
+/* Career Stats of my favorite baseball players */
+CREATE TABLE baseball_players
+    (id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    team TEXT);
+    
+INSERT INTO baseball_players (fullname, team) VALUES ('George Brett', 'Kansas City Royals');
+INSERT INTO baseball_players (fullname, team) VALUES ('Cal Ripken Jr', 'Baltimore Orioles');
+INSERT INTO baseball_players (fullname, team) VALUES  ('Mike Piazza', 'New York Mets');
+INSERT INTO  baseball_players (fullname, team) VALUES ('Ryne Sandberg', 'Chicago Cubs');
+INSERT INTO baseball_players (fullname, team) VALUES ('Frank Thomas', 'Chicago White Sox');
+INSERT INTO baseball_players (fullname, team) VALUES ('Alex Rodriguez', 'New York Yankees');
+INSERT INTO baseball_players (fullname, team) VALUES ('Ken Griffey Jr', 'Seattle Mariners');
+INSERT INTO baseball_players (fullname, team) VALUES ('Will Clark', 'San Francisco Giants');
+INSERT INTO baseball_players (fullname, team) VALUES ('Fred McGriff', 'Atlanta Braves');
+INSERT INTO baseball_players (fullname, team) VALUES ('Andre Dawson', 'Chicago Cubs');
+INSERT INTO baseball_players (fullname, team) VALUES ('Mike Schmidt', 'Philadelphia Phillies');
+INSERT INTO baseball_players (fullname, team) VALUES ('Derek Jeter', 'New York Yankees');
+INSERT INTO baseball_players (fullname, team) VALUES ('Rickey Henderson', 'Oakland Athletics');
+INSERT INTO baseball_players (fullname, team) VALUES ('Wade Boggs', 'Boston Red Sox');
+INSERT INTO baseball_players (fullname, team) VALUES ('Tony Gwynn', 'San Diego Padres');
+
+CREATE TABLE Stats 
+    (id INTEGER PRIMARY KEY AUTOINCREMENT, RBI INTEGER, Stolen_bases INTEGER, Home_Runs INTEGER, Hits INTEGER);
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,596', '201', '317', '3,154');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,695', '36', '431', '3,184');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,335', '17', '427', '2,127');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,061', '344', '282', '2,386');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,704', '32', '521', '2,468');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('2,086', '329', '696', '3,115');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,836', '184', '630', '2,781');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,205', '67', '284', '2,176');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,550', '72', '493', '2,490');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,591', '314', '438', '2,774');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,595', '174', '548', '2,234');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,311', '358', '260', '3,465');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,115', '1,406', '297', '3,055');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,014', '24', '118', '3,010');
+INSERT INTO Stats (RBI, Stolen_bases, Home_Runs, Hits) VALUES ('1,138', '319', '135', '3,141');
+
+
+/* Join all tables*/
+SELECT baseball_players.fullname, baseball_players.team, Stats.RBI, Stats.Stolen_bases, Stats.Home_Runs, Stats.Hits
+    From Stats
+    INNER JOIN baseball_players On baseball_players.id = Stats.id;
+
+
+/* Player RBIs listed greatest to least  */
+SELECT baseball_players.fullname, Stats.RBI
+    From Stats
+    INNER JOIN baseball_players On baseball_players.id = Stats.id
+    ORDER BY Stats.RBI desc;
+
+/* Player Stolen Bases listed greatest to least  */    
+SELECT baseball_players.fullname, Stats.Stolen_bases
+    From Stats
+    INNER JOIN baseball_players On baseball_players.id = Stats.id
+    ORDER BY Stats.Stolen_bases desc;    
+    
+/* Player Home Runs listed greatest to least  */     
+SELECT baseball_players.fullname, Stats.Home_Runs
+    From Stats
+    INNER JOIN baseball_players On baseball_players.id = Stats.id
+    ORDER BY Stats.Home_Runs desc;  
+
+/* Player Hits listed greatest to least  */     
+SELECT baseball_players.fullname, Stats.Hits
+    From Stats
+    INNER JOIN baseball_players On baseball_players.id = Stats.id
+    ORDER BY Stats.Hits desc;  
